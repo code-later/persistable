@@ -1,0 +1,1 @@
+require 'persistable/fs_adapter'
