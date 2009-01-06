@@ -7,7 +7,7 @@ $hoe = Hoe.new('persistable', Persistable::VERSION) do |p|
   p.changes              = p.paragraphs_of("History.txt", 0..1).join("\n\n")
   p.extra_dev_deps = [
     ['mocha'],
-    ['mogilefs'],
+    ['mogilefs-client'],
     ['newgem', ">= #{::Newgem::VERSION}"]
   ]
   p.summary = "Persistable is a library for persisting IO-Data into any storage you like. It provides adapters for in-memory storage, file storage and mogile-fs but can be easily extended with your own adapters."
