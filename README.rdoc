@@ -1,0 +1,62 @@
+= Persistable
+
+Persistable is a library for persisting IO-Data into any storage you like. It provides adapters for in-memory storage, file storage and mogile-fs but can be easily extended with your own adapters.
+
+Persistable has been harvested from project pkw.de[http://pkw.de] of Caroo&nbsp;GmbH[http://caroo.com].
+
+== Download and Installation
+
+Install the gem with the following command...
+
+  $ gem install persistable --source http://github.com/pkwde/persistable
+ 
+== Examples
+
+  class Image
+
+    attr_accessor :name, :persistance_adapter
+
+    def initialize(attributes = {})
+      @name = attributes[:name]
+      @persistance_data = attributes[:persistance_data]
+    end
+
+    def persistance_key
+      self.name
+    end
+
+    def persistance_data
+      @persistance_data
+    end
+
+    def persistance_data=(persistance_data)
+      @persistance_data = persistance_data
+    end
+
+    def save_image_data
+      persistance_adapter.write(self)
+    end
+
+    def load_image_data
+      persistance_adapter.load(self)
+    end
+
+  end
+
+
+  image = Image.new(:name => "foo", :persistance_data => File.open("/path/to/foo.jpg"))
+  image.persistance_adapter = Persistable::FSAdapter.new
+  image.save_image_data
+
+  new_but_same_image = Image.new(:name => "foo")
+  new_but_same_image.persistance_adapter = Persistable::FSAdapter.new
+  new_but_same_image.load_image_data
+
+  image.persistance_data == new_but_same_image.persistance_data
+
+
+== License
+
+Copyright Caroo GmbH 2009
+
+You may use, copy and redistribute this library under the same terms as {Ruby itself}[http://www.ruby-lang.org/en/LICENSE.txt] or under the {MIT license}[http://mocha.rubyforge.org/files/MIT-LICENSE.html].
