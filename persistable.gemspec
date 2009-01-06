@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{persistable}
   s.rubygems_version = %q{1.3.1}
-  s.summary = %q{}
+  s.summary = %q{Persistable is a library for persisting IO-Data into any storage you like. It provides adapters for in-memory storage, file storage and mogile-fs but can be easily extended with your own adapters.}
   s.test_files = ["test/test_helper.rb"]
 
   if s.respond_to? :specification_version then

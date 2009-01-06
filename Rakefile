@@ -10,7 +10,7 @@ $hoe = Hoe.new('persistable', Persistable::VERSION) do |p|
     ['mogilefs'],
     ['newgem', ">= #{::Newgem::VERSION}"]
   ]
-  
+  p.summary = "Persistable is a library for persisting IO-Data into any storage you like. It provides adapters for in-memory storage, file storage and mogile-fs but can be easily extended with your own adapters."
   p.clean_globs |= %w[**/.DS_Store tmp *.log]
 end
 
