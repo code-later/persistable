@@ -6,5 +6,5 @@ require 'persistable/memory_adapter'
 require 'persistable/mogile_fs_adapter'
 
 module Persistable
-  VERSION = "0.3.0"
+  VERSION = "0.3.1"
 end
