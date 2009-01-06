@@ -2,7 +2,7 @@
 
 Persistable is a library for persisting IO-Data into any storage you like. It provides adapters for in-memory storage, file storage and mogile-fs but can be easily extended with your own adapters.
 
-Persistable has been harvested from project pkw.de[http://pkw.de] of Caroo&nbsp;GmbH[http://caroo.com].
+Persistable has been harvested from project pkw.de[http://pkw.de] of {Caroo GmbH}[http://caroo.com].
 
 == Download and Installation
 

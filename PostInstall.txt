@@ -1,0 +1,3 @@
+To use the MogileFSAdapter you need the mogilefs-client. Install it via RubyGems
+
+  $ sudo gem install mogilefs-client
