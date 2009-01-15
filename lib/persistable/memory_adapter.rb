@@ -8,11 +8,11 @@ module Persistable
     end
     
     def write(persistable)
-      @storage[persistable.persistance_key] = persistable.persistance_data
+      @storage[persistable.persistence_key] = persistable.persistence_data
     end
     
     def read(persistable)
-      persistable.persistance_data = @storage[persistable.persistance_key]
+      persistable.persistence_data = @storage[persistable.persistence_key]
     end
     
     def delete(persistable)

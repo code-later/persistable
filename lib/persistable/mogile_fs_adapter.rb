@@ -14,11 +14,11 @@ module Persistable
     end
     
     def write(persistable)
-      connection.store_file(persistable.persistance_key, mogile_fs_class, persistable.persistance_data)
+      connection.store_file(persistable.persistence_key, mogile_fs_class, persistable.persistence_data)
     end
     
     def read(persistable)
-      persistable.persistance_data = StringIO.new(connection.get_file_data(persistable.persistance_key))
+      persistable.persistence_data = StringIO.new(connection.get_file_data(persistable.persistence_key))
     end
     
     def delete(persistable)

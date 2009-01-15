@@ -7,8 +7,8 @@ class MogileFSAdapterTest < Test::Unit::TestCase
     
     data_to_persist = StringIO.new("The answer to all questions.")
     persistable_object_in = mock("PersistableIn")
-    persistable_object_in.expects(:persistance_key).returns("42")
-    persistable_object_in.expects(:persistance_data).returns(data_to_persist)
+    persistable_object_in.expects(:persistence_key).returns("42")
+    persistable_object_in.expects(:persistence_data).returns(data_to_persist)
     
     connection_in = mock("MogileFS-Connection")
     connection_in.expects(:store_file).with("42", "devel", data_to_persist)
@@ -17,8 +17,8 @@ class MogileFSAdapterTest < Test::Unit::TestCase
     adapter.write(persistable_object_in)
 
     persistable_object_out = mock("PersistableOut")
-    persistable_object_out.expects(:persistance_key).returns("42")
-    persistable_object_out.expects(:persistance_data=).with() { |data| data.kind_of? StringIO }
+    persistable_object_out.expects(:persistence_key).returns("42")
+    persistable_object_out.expects(:persistence_data=).with() { |data| data.kind_of? StringIO }
 
     connection_out = mock("MogileFS-Connection")
     connection_out.expects(:get_file_data).with("42").returns(data_to_persist.read)

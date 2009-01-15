@@ -7,8 +7,8 @@ class FSAdapterTest < Test::Unit::TestCase
     adapter.expects(:storage_location).returns("/tmp")
     
     persistable_object = mock("Persistable")
-    persistable_object.expects(:persistance_key).returns("42")
-    persistable_object.expects(:persistance_data).returns(StringIO.new("The answer to all questions."))
+    persistable_object.expects(:persistence_key).returns("42")
+    persistable_object.expects(:persistence_data).returns(StringIO.new("The answer to all questions."))
     
     adapter.write(persistable_object)
     
@@ -25,8 +25,8 @@ class FSAdapterTest < Test::Unit::TestCase
     File.expects(:open).with("/tmp/just_a_file", "rb").returns(just_a_file)
     
     persistable_object = mock("Persistable")
-    persistable_object.expects(:persistance_key).returns("just_a_file")
-    persistable_object.expects(:persistance_data=).with(just_a_file)
+    persistable_object.expects(:persistence_key).returns("just_a_file")
+    persistable_object.expects(:persistence_data=).with(just_a_file)
     
     adapter.read(persistable_object)
   end

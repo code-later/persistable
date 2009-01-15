@@ -14,45 +14,45 @@ Install the gem with the following command...
 
   class Image
 
-    attr_accessor :name, :persistance_adapter
+    attr_accessor :name, :persistence_adapter
 
     def initialize(attributes = {})
       @name = attributes[:name]
-      @persistance_data = attributes[:persistance_data]
+      @persistence_data = attributes[:persistence_data]
     end
 
-    def persistance_key
+    def persistence_key
       self.name
     end
 
-    def persistance_data
-      @persistance_data
+    def persistence_data
+      @persistence_data
     end
 
-    def persistance_data=(persistance_data)
-      @persistance_data = persistance_data
+    def persistence_data=(persistence_data)
+      @persistence_data = persistence_data
     end
 
     def save_image_data
-      persistance_adapter.write(self)
+      persistence_adapter.write(self)
     end
 
     def load_image_data
-      persistance_adapter.load(self)
+      persistence_adapter.load(self)
     end
 
   end
 
 
-  image = Image.new(:name => "foo", :persistance_data => File.open("/path/to/foo.jpg"))
-  image.persistance_adapter = Persistable::FSAdapter.new
+  image = Image.new(:name => "foo", :persistence_data => File.open("/path/to/foo.jpg"))
+  image.persistence_adapter = Persistable::FSAdapter.new
   image.save_image_data
 
   new_but_same_image = Image.new(:name => "foo")
-  new_but_same_image.persistance_adapter = Persistable::FSAdapter.new
+  new_but_same_image.persistence_adapter = Persistable::FSAdapter.new
   new_but_same_image.load_image_data
 
-  image.persistance_data == new_but_same_image.persistance_data
+  image.persistence_data == new_but_same_image.persistence_data
 
 
 == License
