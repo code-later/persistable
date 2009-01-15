@@ -4,7 +4,8 @@ $:.unshift(File.dirname(__FILE__)) unless
 require 'persistable/fs_adapter'
 require 'persistable/memory_adapter'
 require 'persistable/mogile_fs_adapter'
+require 'persistable/factory'
 
 module Persistable
-  VERSION = "0.3.1"
+  VERSION = "0.4.0"
 end
