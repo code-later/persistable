@@ -14,10 +14,13 @@ module Persistable
     end
     
     def read(persistable)
-      puts "location: #{storage_location}/#{persistable.persistence_key}"
       if File.exists?(path = "#{storage_location}/#{persistable.persistence_key}")
         persistable.persistence_data = File.open(path)
       end
+    end
+    
+    def delete(persistable)
+      File.delete("#{storage_location}/#{persistable.persistence_key}")
     end
     
   end

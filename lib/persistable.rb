@@ -8,5 +8,5 @@ require 'persistable/factory'
 require 'active_support/core_ext/hash' # for symbolize_keys
 
 module Persistable
-  VERSION = "0.4.1"
+  VERSION = "0.5.1"
 end
