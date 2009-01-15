@@ -7,5 +7,5 @@ require 'persistable/mogile_fs_adapter'
 require 'persistable/factory'
 
 module Persistable
-  VERSION = "0.4.1"
+  VERSION = "0.5.0"
 end
