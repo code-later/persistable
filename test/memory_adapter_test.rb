@@ -27,4 +27,19 @@ class MemoryAdapterTest < Test::Unit::TestCase
     adapter.read(persistable_object)
   end
   
+  def test_should_delete_persistable_objects
+    adapter = Persistable::MemoryAdapter.new
+    
+    persistable_object = mock("Persistable")
+    persistable_object.expects(:persistance_key).times(2).returns("42")
+    persistable_object.expects(:persistance_data).returns(StringIO.new("The answer to all questions."))
+    
+    adapter.write(persistable_object)
+    
+    assert_equal "The answer to all questions.", adapter.instance_variable_get("@storage")["42"].read
+    
+    adapter.delete(persistable_object)
+    assert !adapter.instance_variable_get("@storage").has_key?("42")
+  end
+  
 end

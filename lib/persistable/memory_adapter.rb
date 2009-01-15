@@ -15,5 +15,9 @@ module Persistable
       persistable.persistance_data = @storage[persistable.persistance_key]
     end
     
+    def delete(persistable)
+      @storage.delete(persistable.persistance_key)
+    end
+    
   end
 end

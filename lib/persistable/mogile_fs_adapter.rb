@@ -21,5 +21,9 @@ module Persistable
       persistable.persistance_data = StringIO.new(connection.get_file_data(persistable.persistance_key))
     end
     
+    def delete(persistable)
+      connection.delete(persistable.persistance_key)
+    end
+    
   end
 end

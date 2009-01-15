@@ -17,5 +17,9 @@ module Persistable
       persistable.persistance_data = File.open("#{storage_location}/#{persistable.persistance_key}", "rb")
     end
     
+    def delete(persistable)
+      File.delete("#{storage_location}/#{persistable.persistance_key}")
+    end
+    
   end
 end
