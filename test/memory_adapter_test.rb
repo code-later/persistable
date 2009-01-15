@@ -6,8 +6,8 @@ class MemoryAdapterTest < Test::Unit::TestCase
     adapter = Persistable::MemoryAdapter.new
     
     persistable_object = mock("Persistable")
-    persistable_object.expects(:persistance_key).returns("42")
-    persistable_object.expects(:persistance_data).returns(StringIO.new("The answer to all questions."))
+    persistable_object.expects(:persistence_key).returns("42")
+    persistable_object.expects(:persistence_data).returns(StringIO.new("The answer to all questions."))
     
     adapter.write(persistable_object)
     
@@ -21,8 +21,8 @@ class MemoryAdapterTest < Test::Unit::TestCase
     adapter.instance_variable_set("@storage", {"42" => test_io_object})
     
     persistable_object = mock("Persistable")
-    persistable_object.expects(:persistance_key).returns("42")
-    persistable_object.expects(:persistance_data=).with(test_io_object)
+    persistable_object.expects(:persistence_key).returns("42")
+    persistable_object.expects(:persistence_data=).with(test_io_object)
     
     adapter.read(persistable_object)
   end
