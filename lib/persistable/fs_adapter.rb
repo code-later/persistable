@@ -8,13 +8,16 @@ module Persistable
     end
     
     def write(persistable)
-      File.open("#{storage_location}/#{persistable.persistence_key}", "wb") do |file|
+      File.open("#{storage_location}/#{persistable.persistence_key}", "w") do |file|
         file.puts persistable.persistence_data.read
       end
     end
     
     def read(persistable)
-      persistable.persistence_data = File.open("#{storage_location}/#{persistable.persistence_key}", "rb")
+      puts "location: #{storage_location}/#{persistable.persistence_key}"
+      if File.exists?(path = "#{storage_location}/#{persistable.persistence_key}")
+        persistable.persistence_data = File.open(path)
+      end
     end
     
   end

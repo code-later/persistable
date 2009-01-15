@@ -21,12 +21,23 @@ class FSAdapterTest < Test::Unit::TestCase
     adapter.expects(:storage_location).returns("/tmp")
     
     File.open("/tmp/just_a_file", "wb") { |file| file.puts "test" }
-    just_a_file = File.open("/tmp/just_a_file", "rb")
-    File.expects(:open).with("/tmp/just_a_file", "rb").returns(just_a_file)
+    just_a_file = File.open("/tmp/just_a_file")
+    File.expects(:open).with("/tmp/just_a_file").returns(just_a_file)
     
     persistable_object = mock("Persistable")
     persistable_object.expects(:persistence_key).returns("just_a_file")
     persistable_object.expects(:persistence_data=).with(just_a_file)
+    
+    adapter.read(persistable_object)
+  end
+  
+  def test_should_not_read_not_existing_persistable_objects
+    adapter = Persistable::FSAdapter.new
+    adapter.expects(:storage_location).at_least_once.returns("/tmp")
+    
+    persistable_object = mock("Persistable")
+    persistable_object.expects(:persistence_key).returns("just_a_not_existing_key")
+    persistable_object.expects(:persistence_data=).never
     
     adapter.read(persistable_object)
   end

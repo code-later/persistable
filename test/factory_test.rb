@@ -26,10 +26,10 @@ class FactoryTest < Test::Unit::TestCase
   end
 
   def test_should_load_yml_from_filename
-    file_mock = mock("File_mock")
     File.expects(:exists?).returns(true)
-    File.expects(:open).with("adapter.yml").yields(file_mock)
-    YAML.expects(:load_file).with(file_mock).returns({})
+    mock_hash = mock("MockHash")
+    mock_hash.expects(:symbolize_keys).returns({})
+    YAML.expects(:load_file).with("adapter.yml").returns(mock_hash)
     Persistable::Factory.load_yml("adapter.yml")
   end
   
