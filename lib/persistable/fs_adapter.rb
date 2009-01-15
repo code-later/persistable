@@ -18,7 +18,7 @@ module Persistable
     end
     
     def delete(persistable)
-      File.delete("#{storage_location}/#{persistable.persistance_key}")
+      File.delete("#{storage_location}/#{persistable.persistence_key}")
     end
     
   end

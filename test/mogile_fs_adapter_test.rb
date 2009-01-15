@@ -29,7 +29,7 @@ class MogileFSAdapterTest < Test::Unit::TestCase
     assert_equal "The answer to all questions.", fetched_data.read
     
     persistable_object_delete = mock("PersistableOut")
-    persistable_object_delete.expects(:persistance_key).returns("42")
+    persistable_object_delete.expects(:persistence_key).returns("42")
     
     connection_delete = mock("MogileFS-Connection")
     adapter.expects(:connection).returns(connection_delete)

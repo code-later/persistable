@@ -16,7 +16,7 @@ module Persistable
     end
     
     def delete(persistable)
-      @storage.delete(persistable.persistance_key)
+      @storage.delete(persistable.persistence_key)
     end
     
   end

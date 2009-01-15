@@ -36,8 +36,8 @@ class FSAdapterTest < Test::Unit::TestCase
     adapter.expects(:storage_location).times(2).returns("/tmp")
     
     persistable_object = mock("Persistable")
-    persistable_object.expects(:persistance_key).times(2).returns("42")
-    persistable_object.expects(:persistance_data).returns(StringIO.new("The answer to all questions."))
+    persistable_object.expects(:persistence_key).times(2).returns("42")
+    persistable_object.expects(:persistence_data).returns(StringIO.new("The answer to all questions."))
     
     adapter.write(persistable_object)
     

@@ -22,7 +22,7 @@ module Persistable
     end
     
     def delete(persistable)
-      connection.delete(persistable.persistance_key)
+      connection.delete(persistable.persistence_key)
     end
     
   end
